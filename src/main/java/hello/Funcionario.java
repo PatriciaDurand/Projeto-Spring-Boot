@@ -39,7 +39,7 @@ public class Funcionario {
         double inss = salarioBase * 0.1;
         double ir = 0.0;
         if (salarioBase > 2000.0) {
-            ir = (salarioBase - 2000.0) * 0.12;
+            ir = (salarioBase - 2000.0) * 0.2;
         }
         return (salarioBase - inss - ir);
     }
