@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @EnableAutoConfiguration
-public class TesteController {
+public class FormularioController {
 
     @RequestMapping("/")
     @ResponseBody
@@ -20,14 +20,15 @@ public class TesteController {
         return "Hello World!";
     }
 
-    @RequestMapping("/teste" )
-    public String teste(Model model) {
+    @RequestMapping("/cadastro" )
+    public String adicionaFuncionario(Model model) {
         model.addAttribute("name", "Patricia");
+        model.addAttribute("salario", "Patricia");
         return "Formulario";
     }
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(TesteController.class, args);
+        SpringApplication.run(FormularioController.class, args);
     }
 }
 

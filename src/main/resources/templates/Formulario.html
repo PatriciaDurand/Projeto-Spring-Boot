@@ -1,10 +1,25 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Teste</title>
+    <title>Formulário</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./css/geral.css" />
 </head>
 <body>
+
+<form role="form" id="formulario">
+    <div class="form-group">
+        <label for="nome">Name:</label>
+        <input type="text" class="form-control" id="nome" />
+    </div>
+    <div class="form-group">
+        <label for="salario">Salário:</label>
+        <input type="text" class="form-control" id="salario" />
+    </div>
+</form>
+
 <p th:text="'Hello, ' + ${name} + '!'" />
+<p th:text="'Hello, ' + ${salario} + '!'" />
 </body>
 </html>
