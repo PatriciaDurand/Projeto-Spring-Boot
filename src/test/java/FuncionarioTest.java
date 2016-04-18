@@ -25,5 +25,5 @@ public class FuncionarioTest {
 
         assertEquals(2500, salarioLiquido, 1);
     }
-    
+
 }

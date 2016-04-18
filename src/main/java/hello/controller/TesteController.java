@@ -1,4 +1,4 @@
-package hello;
+package hello.controller;
 
 /**
  * Created by patriciadurand on 14/04/16.
