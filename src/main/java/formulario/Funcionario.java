@@ -1,6 +1,4 @@
-package hello;
-
-import java.util.Objects;
+package formulario;
 
 /**
  *
@@ -13,22 +11,33 @@ public class Funcionario {
     private int codigo;
     private double salarioBase;
 
+    public Funcionario() {
+    }
+
     public Funcionario(int codigo, String nome, double salarioBase) {
         this.codigo = codigo;
         this.nome = nome;
         this.salarioBase = salarioBase;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
     public int getCodigo() {
         return codigo;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
     public double getSalarioBase() {
         return (salarioBase);
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public void setSalarioBase(double salarioBase) {

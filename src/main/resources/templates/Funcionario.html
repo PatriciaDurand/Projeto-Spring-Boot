@@ -4,11 +4,12 @@
     <title>Formulário</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="./css/geral.css" />
 </head>
 <body>
 
-<form role="form" id="formulario">
+<form id="formulario" action="" method="post" modelAttribute="form">
     <div class="form-group">
         <label for="nome">Name:</label>
         <input type="text" class="form-control" id="nome" />
@@ -19,7 +20,7 @@
     </div>
 </form>
 
-<p th:text="'Hello, ' + ${name} + '!'" />
-<p th:text="'Hello, ' + ${salario} + '!'" />
+<p th:text="'Nome, ' + ${name} + '!'" />
+<p th:text="'Salario, ' + ${salario} + '!'" />
 </body>
 </html>

@@ -1,4 +1,4 @@
-import hello.Funcionario;
+import formulario.Funcionario;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
