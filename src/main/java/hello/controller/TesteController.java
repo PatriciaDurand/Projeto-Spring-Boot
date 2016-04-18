@@ -23,7 +23,7 @@ public class TesteController {
     @RequestMapping("/teste" )
     public String teste(Model model) {
         model.addAttribute("name", "Patricia");
-        return "teste";
+        return "Formulario";
     }
 
     public static void main(String[] args) throws Exception {
