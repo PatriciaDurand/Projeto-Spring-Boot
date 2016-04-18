@@ -20,7 +20,7 @@ public class FormularioController {
         return "Hello World!";
     }
 
-    @RequestMapping("/cadastro" )
+    @RequestMapping(value = "/cadastro", method = RequestMethod.POST)
     public String adicionaFuncionario(Model model) {
         model.addAttribute("name", "Patricia");
         model.addAttribute("salario", "Patricia");
