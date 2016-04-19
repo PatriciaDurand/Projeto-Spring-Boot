@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulário</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/geral.css" />
+</head>
+<body>
+<div class="container">
+    <h3>Lista de Funcionários</h3>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Salário Base</th>
+            <th>Salário Líquido</th>
+        </tr>
+        <tr th:each="funcionario : ${lista}">
+            <td th:text="${funcionario.getNome()}">Nome</td>
+            <td th:text="${funcionario.getSalarioBase()}">Salario Base</td>
+            <td th:text="${funcionario.getSalarioLiquido()}">Salario Líquido</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

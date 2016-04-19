@@ -15,8 +15,8 @@ public class MestreObra extends Servente {
     //MestreDeObras: classe derivada da classe Servente.
     //Para cada mestre de obras é necessário armazenar quantos funcionarios estão sob sua supervisão.
     //Um mestre de obras ganha um adicional de 10% para cada grupo de 10 funcionários que estão sob seu comando.
-    public MestreObra(int codigo, String nome, double salarioBase, double insalubridade, int func) {
-        super(codigo, nome, salarioBase, insalubridade);
+    public MestreObra(String nome, double salarioBase, double insalubridade, int func) {
+        super(nome, salarioBase, insalubridade);
         numFuncionario = func;
 
     }

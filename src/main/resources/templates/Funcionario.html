@@ -8,19 +8,21 @@
     <link rel="stylesheet" type="text/css" href="./css/geral.css" />
 </head>
 <body>
+<div class="container">
+    <h3>Cadastro de Funcionários</h3>
+    <form action="#" th:action="@{/adicionafuncionario}" method="post" th:object="${funcionario}" modelAttribute="funcionario">
+        <div class="form-group">
+            <label for="nome">Name:</label>
+            <input type="text" placeholder="Insira seu nome" class="form-control" id="nome" th:field="*{nome}"/>
+        </div>
+        <div class="form-group">
+            <label for="salario">Salário:</label>
+            <input type="text" placeholder="Insira seu salario" class="form-control" id="salario" th:field="*{salarioBase}"/>
+        </div>
+        <input class="btn btn-default" type="submit" value="Enviar" />
 
-<form id="formulario" action="" method="post" modelAttribute="form">
-    <div class="form-group">
-        <label for="nome">Name:</label>
-        <input type="text" class="form-control" id="nome" />
-    </div>
-    <div class="form-group">
-        <label for="salario">Salário:</label>
-        <input type="text" class="form-control" id="salario" />
-    </div>
-</form>
+    </form>
+</div>
 
-<p th:text="'Nome, ' + ${name} + '!'" />
-<p th:text="'Salario, ' + ${salario} + '!'" />
 </body>
 </html>

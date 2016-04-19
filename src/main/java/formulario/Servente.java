@@ -4,6 +4,8 @@
  */
 package formulario;
 
+import formulario.model.Funcionario;
+
 /**
  *
  * Created by patriciadurand on 15/04/16.
@@ -14,8 +16,8 @@ public class Servente extends Funcionario {
     
     //Servente: classe derivada da classe Funcionario.
     //Um servente recebe um adicional de 5% a título de insalubridade
-    public Servente(int codigo, String nome, double salarioBase, double insalubridade) {
-        super(codigo, nome, salarioBase);
+    public Servente(String nome, double salarioBase, double insalubridade) {
+        super(nome, salarioBase);
         insal = insalubridade;
     }
 

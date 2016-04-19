@@ -4,6 +4,8 @@
  */
 package formulario;
 
+import formulario.model.Funcionario;
+
 /**
  *
  * Created by patriciadurand on 15/04/16.
@@ -14,8 +16,8 @@ public class Motorista extends Funcionario {
 
     //Motorista: classe derivada da classe Funcionario.
     //Para cada motorista é necessário armazenar o número da carteira de motorista.
-    public Motorista(int codigo, String nome, double salarioBase, long cartMot) {
-        super(codigo, nome, salarioBase);
+    public Motorista(String nome, double salarioBase, long cartMot) {
+        super(nome, salarioBase);
         cartMotorista = cartMot;
     }
 

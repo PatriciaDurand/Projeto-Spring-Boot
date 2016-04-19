@@ -1,21 +1,30 @@
 package formulario.model;
 
+import javax.persistence.*;
+
 /**
  *
  * Created by patriciadurand on 15/04/16.
  */
 
+@Entity
+@Table(name="Funcionario")
 public class Funcionario {
 
-    private String nome;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int codigo;
-    private double salarioBase;
+
+    @Column(name="Nome", nullable=false)
+    public String nome;
+
+    @Column(name="Salario Base", nullable=false)
+    public double salarioBase;
 
     public Funcionario() {
     }
 
-    public Funcionario(int codigo, String nome, double salarioBase) {
-        this.codigo = codigo;
+    public Funcionario(String nome, double salarioBase) {
         this.nome = nome;
         this.salarioBase = salarioBase;
     }
