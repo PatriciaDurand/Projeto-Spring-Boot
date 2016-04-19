@@ -35,24 +35,9 @@
             <artifactId>hibernate-core</artifactId>
             <version>4.3.11.Final</version>
         </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
     </dependencies>
 </project>
-
-
-<!--apply plugin: 'android'
-
-android {
-    compileSdkVersion 19
-    buildToolsVersion "19.0.1"
-
-    defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 19
-        versionCode 1
-        versionName "1.0"
-    }
-}
-
-dependencies {
-    compile 'com.android.support:support-v4:+'
-}-->
