@@ -7,9 +7,12 @@ package formulario.controller;
 import formulario.model.Funcionario;
 import formulario.model.FuncionarioDAO;
 import formulario.model.FuncionarioDAOImpl;
-import org.springframework.boot.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.*;
-import org.springframework.stereotype.*;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,26 +20,33 @@ import org.springframework.web.bind.annotation.*;
 @EnableAutoConfiguration
 public class FuncionarioController {
 
-    private FuncionarioDAO funcionarioDAO = new FuncionarioDAOImpl();
+    private FuncionarioDAO funcionarioDAO = null;
+    Session session = null;
 
     @RequestMapping("/")
-    @ResponseBody
-    public String home() {
-        //return "index";
-        return "Hello World!";
+    public String home(Model model) {
+        Configuration cfg = new Configuration().configure();
+        //Entidades do modelo sendo adicionadas na configuração
+        cfg.addAnnotatedClass(Funcionario.class);
+
+        SessionFactory sessionFactory = cfg.buildSessionFactory();
+        session = sessionFactory.openSession();
+        funcionarioDAO = new FuncionarioDAOImpl<Funcionario>(session);
+
+        return "index";
+        //return "Hello World!";
     }
 
     @RequestMapping(value = "/cadastro")
     public String cadastrarFuncionario(Model model) {
         model.addAttribute("funcionario", new Funcionario());
-        return "Funcionario";
+        return "CadastroFuncionario";
     }
 
     @RequestMapping(value = "/adicionafuncionario", method = RequestMethod.POST)
-    public String adicionaFuncionario(Funcionario funcionario, Model model) {
+    public String adicionaFuncionario(Funcionario funcionario) {
         if (funcionario.getNome() != null && funcionario.getSalarioBase() >= 0) {
-            //funcionarioDAO.savar(new Funcionario(nome,salario));
-            funcionarioDAO.savar(funcionario);
+            funcionarioDAO.salvar(funcionario);
         }
         return "redirect:/cadastro";
     }
@@ -47,8 +57,8 @@ public class FuncionarioController {
         return "ListaFuncionarios";
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         SpringApplication.run(FuncionarioController.class, args);
     }
-}
 
+}

@@ -1,6 +1,9 @@
 package formulario.model;
 
+import com.sun.org.apache.bcel.internal.util.Objects;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  *
@@ -9,16 +12,16 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="Funcionario")
-public class Funcionario {
+public class Funcionario implements Serializable{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int codigo;
 
     @Column(name="Nome", nullable=false)
     public String nome;
 
-    @Column(name="Salario Base", nullable=false)
+    @Column(name="SalarioBase", nullable=false)
     public double salarioBase;
 
     public Funcionario() {
@@ -86,10 +89,10 @@ public class Funcionario {
         return true;
     }
 
-//    @Override
-//    public int hashCode() {
-//        int hash = 5;
-//        hash = 29 * hash + Objects.hashCode(this.nome);
-//        return hash;
-//    }
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 29 * hash + Objects.hashCode(this.nome);
+        return hash;
+    }
 }

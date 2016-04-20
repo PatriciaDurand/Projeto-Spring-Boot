@@ -1,13 +1,13 @@
 package formulario.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by patriciadurand on 18/04/16.
  */
 public interface FuncionarioDAO {
 
-    public void savar(Funcionario funcionario);
+    void salvar(Funcionario funcionario);
 
-    public ArrayList<Funcionario> listar();
+    List<Funcionario> listar();
 }
