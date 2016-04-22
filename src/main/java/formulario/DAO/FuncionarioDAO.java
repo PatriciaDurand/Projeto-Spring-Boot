@@ -1,4 +1,6 @@
-package formulario.model;
+package formulario.DAO;
+
+import formulario.model.Funcionario;
 
 import java.util.List;
 

@@ -5,7 +5,7 @@ package formulario.controller;
  */
 
 import formulario.model.Funcionario;
-import formulario.model.FuncionarioDAO;
+import formulario.DAO.FuncionarioDAO;
 import formulario.model.FuncionarioDAOImpl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

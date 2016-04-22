@@ -1,5 +1,6 @@
 package formulario.model;
 
+import formulario.DAO.FuncionarioDAO;
 import org.hibernate.Session;
 
 import javax.transaction.Transactional;
@@ -10,7 +11,7 @@ import java.util.List;
 /**
  * Created by patriciadurand on 18/04/16.
  */
-public class FuncionarioDAOImpl<T extends Serializable> implements FuncionarioDAO  {
+public class FuncionarioDAOImpl<T extends Serializable> implements FuncionarioDAO {
 
     List<Funcionario> lista;
     private Session session = null;
