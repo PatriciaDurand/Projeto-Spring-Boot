@@ -10,7 +10,6 @@ import formulario.model.FuncionarioDAOImpl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,10 +54,6 @@ public class FuncionarioController {
     public String listarFuncionario(Model model) {
         model.addAttribute("lista", funcionarioDAO.listar());
         return "ListaFuncionarios";
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(FuncionarioController.class, args);
     }
 
 }
