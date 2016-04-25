@@ -1,24 +1,23 @@
-package formulario.model;
+package formulario.DAO;
 
-import formulario.DAO.FuncionarioDAO;
+import formulario.model.Funcionario;
 import org.hibernate.Session;
 
 import javax.transaction.Transactional;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by patriciadurand on 18/04/16.
  */
+
 public class FuncionarioDAOImpl<T extends Serializable> implements FuncionarioDAO {
 
-    List<Funcionario> lista;
     private Session session = null;
+    private FuncionarioDAO funcionarioDAO;
 
     public FuncionarioDAOImpl(Session session) {
         this.session = session;
-        lista = new ArrayList<Funcionario>();
     }
 
     @Override
@@ -26,7 +25,6 @@ public class FuncionarioDAOImpl<T extends Serializable> implements FuncionarioDA
         session.beginTransaction();
         session.save(funcionario);
         session.getTransaction().commit();
-        lista.add(funcionario);
     }
 
     @Override

@@ -4,19 +4,17 @@ package formulario.controller;
  * Created by patriciadurand on 14/04/16.
  */
 
-import formulario.model.Funcionario;
 import formulario.DAO.FuncionarioDAO;
-import formulario.model.FuncionarioDAOImpl;
+import formulario.DAO.FuncionarioDAOImpl;
+import formulario.model.Funcionario;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.springframework.boot.autoconfigure.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@EnableAutoConfiguration
 public class FuncionarioController {
 
     private FuncionarioDAO funcionarioDAO = null;
@@ -33,7 +31,6 @@ public class FuncionarioController {
         funcionarioDAO = new FuncionarioDAOImpl<Funcionario>(session);
 
         return "index";
-        //return "Hello World!";
     }
 
     @RequestMapping(value = "/cadastro")
