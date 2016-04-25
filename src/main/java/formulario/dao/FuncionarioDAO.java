@@ -1,4 +1,4 @@
-package formulario.DAO;
+package formulario.dao;
 
 import formulario.model.Funcionario;
 

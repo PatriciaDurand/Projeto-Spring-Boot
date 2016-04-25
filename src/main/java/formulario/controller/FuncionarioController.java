@@ -4,12 +4,9 @@ package formulario.controller;
  * Created by patriciadurand on 14/04/16.
  */
 
-import formulario.DAO.FuncionarioDAO;
-import formulario.DAO.FuncionarioDAOImpl;
+import formulario.dao.FuncionarioDAO;
 import formulario.model.Funcionario;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,21 +14,20 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class FuncionarioController {
 
-    private FuncionarioDAO funcionarioDAO = null;
-    Session session = null;
+    @Autowired
+    private FuncionarioDAO funcionarioDAO;
 
     @RequestMapping("/")
     public String home(Model model) {
-        Configuration cfg = new Configuration().configure();
-        //Entidades do modelo sendo adicionadas na configuração
-        cfg.addAnnotatedClass(Funcionario.class);
-
-        SessionFactory sessionFactory = cfg.buildSessionFactory();
-        session = sessionFactory.openSession();
-        funcionarioDAO = new FuncionarioDAOImpl<Funcionario>(session);
-
         return "index";
     }
+
+//    @PostConstruct
+//    public void init(){
+//        Configuration cfg = new Configuration().configure();
+//        //Entidades do modelo sendo adicionadas na configuração
+//        cfg.addAnnotatedClass(Funcionario.class);
+//    }
 
     @RequestMapping(value = "/cadastro")
     public String cadastrarFuncionario(Model model) {

@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
-//ou usar @SpringApplication
+//ou usar @SpringBootApplication
 
 public class Application {
 
