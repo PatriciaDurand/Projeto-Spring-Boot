@@ -22,8 +22,8 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("br.com.ilegra.ProjetoSpringBoot.configuration")
-@PropertySource("classpath:application.properties")
+@ComponentScan("formulario.model.Funcionario")
+@PropertySource("classpath:hibernate.properties")
 public class AppConfig {
 
     @Autowired
@@ -33,7 +33,7 @@ public class AppConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan("br.com.ilegra.ProjetoSpringBoot");
+        sessionFactory.setPackagesToScan("formulario.model");
         sessionFactory.setHibernateProperties(hibernateProperties());
 
         return sessionFactory;

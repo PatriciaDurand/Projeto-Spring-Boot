@@ -22,13 +22,6 @@ public class FuncionarioController {
         return "index";
     }
 
-//    @PostConstruct
-//    public void init(){
-//        Configuration cfg = new Configuration().configure();
-//        //Entidades do modelo sendo adicionadas na configuração
-//        cfg.addAnnotatedClass(Funcionario.class);
-//    }
-
     @RequestMapping(value = "/cadastro")
     public String cadastrarFuncionario(Model model) {
         model.addAttribute("funcionario", new Funcionario());
