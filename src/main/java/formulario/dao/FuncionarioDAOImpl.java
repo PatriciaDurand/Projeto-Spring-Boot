@@ -1,7 +1,6 @@
 package formulario.dao;
 
 import formulario.model.Funcionario;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ import java.util.List;
 
 @Repository("FuncionarioDAO")
 @Transactional
-public class FuncionarioDAOImpl extends AbstractDao<Integer, Funcionario> implements FuncionarioDAO {
+public class FuncionarioDAOImpl implements FuncionarioDAO {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -32,9 +31,8 @@ public class FuncionarioDAOImpl extends AbstractDao<Integer, Funcionario> implem
 
     @Override
     public List<Funcionario> listar() {
-        Criteria criteria = createEntityCriteria();
-        List<Funcionario> funcionarios = (List<Funcionario>) criteria.list();
-        return funcionarios;
+        List list = getSession().createCriteria(Funcionario.class).list();
+        return list;
     }
 
     @Override
