@@ -16,11 +16,18 @@
                 <th>Nome</th>
                 <th>Salário Base</th>
                 <th>Salário Líquido</th>
+                <th></th>
             </tr>
             <tr th:each="funcionario : ${lista}">
-                <td th:text="${funcionario.getNome()}">Nome</td>
-                <td th:text="${funcionario.getSalarioBase()}">Salario Base</td>
-                <td th:text="${funcionario.getSalarioLiquido()}">Salario Líquido</td>
+                <td th:text="${funcionario.getNome()}" th:field="${funcionario.getNome()}" id="nome" >Nome</td>
+                <td th:text="${funcionario.getSalarioBase()}" th:field="${funcionario.getSalarioBase()}" id="salariobase">Salario Base</td>
+                <td th:text="${funcionario.getSalarioLiquido()}" th:field="${funcionario.getSalarioLiquido()}" id="salarioliquido">Salario Líquido</td>
+                <td>
+                    <a th:href="@{'/deletar/' + ${funcionario.codigo}}">
+                        <input class="btn btn-default" type="submit" value="Deletar" />
+                    </a>
+                </td>
+
             </tr>
         </table>
     </div>

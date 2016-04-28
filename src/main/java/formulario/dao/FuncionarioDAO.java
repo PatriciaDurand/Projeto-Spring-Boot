@@ -12,4 +12,9 @@ public interface FuncionarioDAO {
     void salvar(Funcionario funcionario);
 
     List<Funcionario> listar();
+
+    void deletar(int ccodigo);
+
+    Funcionario buscarPorCodigo(int codigo);
+
 }

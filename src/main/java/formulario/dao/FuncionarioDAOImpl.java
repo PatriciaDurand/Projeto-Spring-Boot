@@ -15,6 +15,7 @@ import java.util.List;
  */
 
 @Repository("FuncionarioDAO")
+@Transactional
 public class FuncionarioDAOImpl extends AbstractDao<Integer, Funcionario> implements FuncionarioDAO {
 
     @Autowired
@@ -25,16 +26,32 @@ public class FuncionarioDAOImpl extends AbstractDao<Integer, Funcionario> implem
     }
 
     @Override
-    @Transactional
     public void salvar(Funcionario funcionario) {
-        sessionFactory.getCurrentSession().persist(funcionario);
+        getSession().persist(funcionario);
     }
 
     @Override
-    @Transactional
     public List<Funcionario> listar() {
         Criteria criteria = createEntityCriteria();
         List<Funcionario> funcionarios = (List<Funcionario>) criteria.list();
         return funcionarios;
+    }
+
+    @Override
+    public Funcionario buscarPorCodigo(int codigo){
+        List<Funcionario> funcionarios = listar();
+
+        for (Funcionario f : funcionarios) {
+            if (f.getCodigo() == codigo) {
+                return f;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void deletar(int codigo) {
+        Funcionario funcionario = buscarPorCodigo(codigo);
+        getSession().delete(funcionario);
     }
 }

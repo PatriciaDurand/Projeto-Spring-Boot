@@ -30,7 +30,7 @@ public class FuncionarioController {
 
     @RequestMapping(value = "/adicionafuncionario", method = RequestMethod.POST)
     public String adicionaFuncionario(Funcionario funcionario) {
-        if (funcionario.getNome() != null && funcionario.getSalarioBase() >= 0) {
+        if (!funcionario.getNome().equals("") && funcionario.getSalarioBase() >= 0) {
             funcionarioDAO.salvar(funcionario);
         }
         return "redirect:/cadastro";
@@ -40,6 +40,12 @@ public class FuncionarioController {
     public String listarFuncionario(Model model) {
         model.addAttribute("lista", funcionarioDAO.listar());
         return "ListaFuncionarios";
+    }
+
+    @RequestMapping(value = "/deletar/{codigo}", method=RequestMethod.GET)
+    public String deletarFuncionario(Model model, @PathVariable("codigo") int codigo) {
+        funcionarioDAO.deletar(codigo);
+        return "redirect:/lista";
     }
 
 }

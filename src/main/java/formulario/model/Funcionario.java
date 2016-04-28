@@ -67,9 +67,11 @@ public class Funcionario implements Serializable{
 
     @Override
     public String toString() {
-        return (getClass().getSimpleName() + "\n Codigo: " + getCodigo()
-                + "\n Nome: " + getNome() + "\n Salario Base: " + getSalarioBase()
-                + "\n Salario liquido: " + getSalarioLiquido());
+        return "Funcionario{" +
+                "codigo=" + codigo +
+                ", nome='" + nome + '\'' +
+                ", salarioBase=" + salarioBase +
+                '}';
     }
 
     @Override
